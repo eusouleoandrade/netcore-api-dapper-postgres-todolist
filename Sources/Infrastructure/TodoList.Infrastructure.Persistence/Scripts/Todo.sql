@@ -1,0 +1,6 @@
+CREATE TABLE Todo (
+    Id SERIAL,
+    Title VARCHAR(60) NOT NULL,
+    Done BOOLEAN NOT NULL,
+    PRIMARY KEY(Id)
+);
