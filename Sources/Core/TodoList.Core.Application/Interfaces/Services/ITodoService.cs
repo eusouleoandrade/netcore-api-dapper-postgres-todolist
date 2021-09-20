@@ -13,5 +13,7 @@ namespace TodoList.Core.Application.Interfaces.Services
         Task<Todo> GetByIdAsync(int id);
 
         Task<IEnumerable<Todo>> GetAllAsync();
+
+        Task DeleteAsync(int id);
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dapper;
 using Dapper.Contrib.Extensions;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;    
+using Npgsql;
 using TodoList.Core.Application.Interfaces.Repositories;
 
 namespace TodoList.Infrastructure.Persistence.Repositories
@@ -14,13 +14,13 @@ namespace TodoList.Infrastructure.Persistence.Repositories
         where TId : struct
     {
         private readonly IConfiguration _configuration;
-        private readonly SqlConnection _connection;
+        private readonly NpgsqlConnection _connection;
 
         public GenericRepositoryAsync(IConfiguration configuration)
         {
             _configuration = configuration;
-            string connectionString = _configuration.GetConnectionString("Default");
-            _connection = new SqlConnection(connectionString);
+            string connectionString = _configuration.GetConnectionString("DefaultConnection");
+            _connection = new NpgsqlConnection(connectionString);
         }
 
         public async Task<TId> AddAsync(TEntity entity)
