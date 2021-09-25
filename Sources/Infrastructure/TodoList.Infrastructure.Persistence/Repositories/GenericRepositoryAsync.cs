@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper;
 using Dapper.Contrib.Extensions;
-using Microsoft.Extensions.Configuration;    
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 using TodoList.Core.Application.Interfaces.Repositories;
 
@@ -23,21 +22,10 @@ namespace TodoList.Infrastructure.Persistence.Repositories
             _connection = new NpgsqlConnection(connectionString);
         }
 
-        public async Task<TId> AddAsync(TEntity entity)
-        {
-            var idEntity = await _connection.ExecuteScalarAsync("");
-            return (TId)Convert.ChangeType(idEntity, typeof(TId));
-        }
-
-        public async Task DeleteAsync(TEntity entity) => await _connection.DeleteAsync<TEntity>(entity);
-
-
-        public void Dispose() => _connection.DisposeAsync();
+        public virtual void Dispose() => _connection.DisposeAsync();
 
         public async Task<IEnumerable<TEntity>> GetAllAsync() => await _connection.GetAllAsync<TEntity>();
 
         public async Task<TEntity> GetByIdAsync(TId id) => await _connection.GetAsync<TEntity>(id);
-
-        public async Task UpdateAsync(TEntity entity) => await _connection.UpdateAsync<TEntity>(entity);
     }
 }

@@ -9,8 +9,5 @@ namespace TodoList.Core.Application.Interfaces.Repositories
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> GetByIdAsync(TId id);
-        Task<TId> AddAsync(TEntity entity);
-        Task UpdateAsync(TEntity entity);
-        Task DeleteAsync(TEntity entity);
     }
 }

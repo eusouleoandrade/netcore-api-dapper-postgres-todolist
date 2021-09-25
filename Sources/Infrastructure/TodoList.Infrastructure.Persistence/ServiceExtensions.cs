@@ -9,6 +9,7 @@ namespace TodoList.Infrastructure.Persistence
         public static void AddPersistenceInfrastructure(this IServiceCollection services)
         {
             services.AddScoped(typeof(IGenericRepositoryAsync<,>), typeof(GenericRepositoryAsync<,>));
+            services.AddScoped<ITodoRepositoryAsync, TodoRepositoryAsync>();
         }
     }
 }
