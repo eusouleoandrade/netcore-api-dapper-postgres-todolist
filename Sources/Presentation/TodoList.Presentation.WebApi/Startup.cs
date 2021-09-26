@@ -23,6 +23,7 @@ namespace TodoList.Presentation.WebApi
             services.AddApplicationLayer();
             services.AddPersistenceInfrastructure();
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoList.Presentation.WebApi", Version = "v1" });
@@ -43,6 +44,7 @@ namespace TodoList.Presentation.WebApi
 
             }
 
+            app.UseCors(option => option.AllowAnyOrigin());
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
