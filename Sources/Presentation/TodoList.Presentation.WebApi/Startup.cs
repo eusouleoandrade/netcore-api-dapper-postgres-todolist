@@ -44,7 +44,11 @@ namespace TodoList.Presentation.WebApi
 
             }
 
-            app.UseCors(option => option.AllowAnyOrigin());
+            app.UseCors(option =>
+                option.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
