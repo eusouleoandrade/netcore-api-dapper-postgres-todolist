@@ -1,3 +1,4 @@
+using System;
 using Dapper.Contrib.Extensions;
 using TodoList.Core.Domain.Common;
 
@@ -20,11 +21,6 @@ namespace TodoList.Core.Domain.Entities
 
         public Todo(string title, bool done) : this(default, title, done)
         {
-        }
-
-        private void Validate()
-        {
-            // TODO: Validar se o título tem um valor válido
         }
     }
 }

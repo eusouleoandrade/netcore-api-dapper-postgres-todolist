@@ -12,10 +12,7 @@ namespace TodoList.Core.Application.Services
 
         public TodoService(ITodoRepositoryAsync repository) => _repository = repository;
 
-        public async Task<int> AddAsync(Todo entity)
-        {
-             return await _repository.AddAsync(entity);
-        }
+        public async Task<int> AddAsync(Todo entity) => await _repository.AddAsync(entity);
 
         public async Task<IEnumerable<Todo>> GetAllAsync() => await _repository.GetAllAsync();
 
