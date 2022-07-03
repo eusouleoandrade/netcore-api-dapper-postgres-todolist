@@ -14,10 +14,17 @@ namespace TodoList.Core.Domain.Entities
             Id = id;
             Title = title;
             Done = done;
+
+            Validate();
         }
 
         public Todo(string title, bool done) : this(default, title, done)
         {
+        }
+
+        private void Validate()
+        {
+            // TODO: Validar se o título tem um valor válido
         }
     }
 }
