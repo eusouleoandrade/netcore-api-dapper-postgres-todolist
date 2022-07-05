@@ -15,8 +15,6 @@ namespace TodoList.Core.Domain.Entities
             Id = id;
             Title = title;
             Done = done;
-
-            Validate();
         }
 
         public Todo(string title, bool done) : this(default, title, done)
